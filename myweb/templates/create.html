@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>创建</title>
+    <style>
+        div, h1{
+            text-align: center;
+        }
+        h1{
+            margin-top: 60px;
+        }
+        input{
+            margin: 10px;
+        }
+        table{
+            margin: auto;
+        }
+        table th{
+            margin: 0, 10px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>数据库操作</h1>
+        <p>
+            <div>请新建用户</div>
+        </p>
+        <p>
+            <form action="/app/model/" method="post">
+                <input type="text" name="user" placeholder="请输入用户名">
+                <br>
+                <input type="password" name="pwd" placeholder="请输入密码">
+                <br>
+                <input type="submit" value="提交">
+            </form>
+        </p>
+        <p>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>姓名</th>
+                    <th>密码</th>
+                    <th>日期</th>
+                    <th>编辑</th>
+                    <th>删除</th>
+                </tr>
+                {% for user in obj %}
+                    <tr>
+                        <th>{{ user.id }}</th>
+                        <th>{{ user.name }}</th>
+                        <th>{{ user.password }}</th>
+                        <th>{{ user.time }}</th>
+                        <th><a href="">编辑</a></th>
+                        <th><a href="">删除</a></th>
+                    </tr>
+                {% endfor %}
+            </table>
+        </p>
+    </div>
+</body>
+</html>
