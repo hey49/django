@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        {% block css %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+    <span style="margin-left: 50px">
+        <a href="/app/index/">首页</a>
+        <span>|</span>
+        <a href="/app/model/">模型</a>
+
+    </span>
+    {% if global_user != None %}
+        <span style="float: right; margin-right: 50px">
+            欢迎，{{global_user.name}}
+            <a href="/app/logout" style="margin-left: 10px">退出</a>
+        </span>
+        {% else %}
+        <a href="/app/login" style="float: right; margin-right: 50px">登录</a>
+    {% endif %}
+    <br>
+    {% block content %} {% endblock %}
+</body>
+</html>

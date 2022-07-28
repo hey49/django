@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title>创建</title>
-    <style>
-        div, h1{
+{% extends 'tem.html' %}
+
+{% block title %}
+创建
+{% endblock %}
+
+{% block css %}
+div, h1{
             text-align: center;
         }
         h1{
@@ -20,9 +21,10 @@
             margin: 0, 10px;
             width: 100px;
         }
-    </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
+
     <div>
         <h1>数据库操作</h1>
         <p>
@@ -34,6 +36,12 @@
                 <br>
                 <input type="password" name="pwd" placeholder="请输入密码">
                 <br>
+                <select name="dep_id">
+                    {% for i in dep%}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+                <br>
                 <input type="submit" value="提交">
             </form>
         </p>
@@ -44,6 +52,7 @@
                     <th>姓名</th>
                     <th>密码</th>
                     <th>日期</th>
+                    <th>部门</th>
                     <th>编辑</th>
                     <th>删除</th>
                 </tr>
@@ -53,12 +62,12 @@
                         <th>{{ user.name }}</th>
                         <th>{{ user.password }}</th>
                         <th>{{ user.time }}</th>
-                        <th><a href="">编辑</a></th>
-                        <th><a href="">删除</a></th>
+                        <th>{{ user.department.name }}</th>
+                        <th><a href="/app/model/edit/{{user.id}}">编辑</a></th>
+                        <th><a href="/app/model/delete/{{user.id}}">删除</a></th>
                     </tr>
                 {% endfor %}
             </table>
         </p>
     </div>
-</body>
-</html>
+{% endblock %}

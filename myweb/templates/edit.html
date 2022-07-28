@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title>编辑</title>
-</head>
-<body>
+{% extends 'tem.html' %}
 
-</body>
-</html>
+{% block title %}
+编辑
+{% endblock %}
+
+{% block css %}
+        div, h1{
+            text-align: center;
+        }
+        h1{
+            margin-top: 60px;
+        }
+        input{
+            margin: 10px;
+        }
+        table{
+            margin: auto;
+        }
+        table th{
+            margin: 0, 10px;
+            width: 100px;
+        }
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h1>修改用户信息</h1>
+        <p>
+            <form action="/app/model/edit/{{ obj.id }}" method="post">
+                <input type="text" name="user" placeholder="请输入用户名" value="{{obj.name}}">
+                <br>
+                <input type="password" name="pwd" placeholder="请输入密码" value="{{obj.password}}">
+                <br>
+                <input type="submit" value="提交">
+            </form>
+        </p>
+    </div>
+{% endblock %}

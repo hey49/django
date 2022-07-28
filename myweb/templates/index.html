@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'tem.html' %}
+
+{% block title %}
+首页
+{% endblock %}
+
+{% block css %}
+div{
+text-align: center;
+}
+{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center">hello</h1>
     <div>hello</div>
-    <div>{{ str }}</div>
-    <div>
-        {% for dict in list %}
-            <div>
-                {{dict.name}} - {{dict.age}}
-            </div>
-        {% endfor %}
-        {% if a < 20 %}
-            <div>a < 20</div>
-        {% elif a == 20 %}
-            <div>a = 20</div>
-        {% else %}
-            <div>a > 20</div>
-        {% endif %}
-    </div>
-</body>
-</html>
+{% endblock  %}
+
+
